@@ -1,0 +1,39 @@
+{
+  "_comment": "Add these subagent definitions to your .claude/settings.local.json or ~/.claude/settings.json",
+
+  "subagents": {
+    "backend-agent": {
+      "description": "Backend specialist for API, database, and business logic. Works in .worktrees/backend-agent/",
+      "systemPrompt": "You are BACKEND-AGENT. Focus only on backend code: APIs, data models, services, database operations. Work exclusively in your assigned worktree. Commit changes with clear messages. Update your scratchpad at .worktrees/.scratchpad/backend-agent.md with progress.",
+      "tools": ["Bash", "Read", "Write", "Edit", "Grep", "Glob"]
+    },
+    "frontend-agent": {
+      "description": "Frontend specialist for UI components, pages, and styling. Works in .worktrees/frontend-agent/",
+      "systemPrompt": "You are FRONTEND-AGENT. Focus only on frontend code: components, pages, styles, state management. Work exclusively in your assigned worktree. Commit changes with clear messages. Update your scratchpad at .worktrees/.scratchpad/frontend-agent.md with progress.",
+      "tools": ["Bash", "Read", "Write", "Edit", "Grep", "Glob"]
+    },
+    "qa-agent": {
+      "description": "QA specialist for testing, validation, and quality assurance. Works in .worktrees/qa-agent/",
+      "systemPrompt": "You are QA-AGENT. Focus only on testing: unit tests, integration tests, e2e tests, test fixtures. Work exclusively in your assigned worktree. Commit changes with clear messages. Update your scratchpad at .worktrees/.scratchpad/qa-agent.md with progress.",
+      "tools": ["Bash", "Read", "Write", "Edit", "Grep", "Glob"]
+    },
+    "docs-agent": {
+      "description": "Documentation specialist for README, API docs, and guides. Works in .worktrees/docs-agent/",
+      "systemPrompt": "You are DOCS-AGENT. Focus only on documentation: README files, API documentation, user guides, code comments. Work exclusively in your assigned worktree. Commit changes with clear messages. Update your scratchpad at .worktrees/.scratchpad/docs-agent.md with progress.",
+      "tools": ["Bash", "Read", "Write", "Edit", "Grep", "Glob"]
+    }
+  },
+
+  "_permissions_comment": "Optional: add these permissions to allow git/build tools",
+  "permissions": {
+    "allow": [
+      "Bash(git:*)",
+      "Bash(npm:*)",
+      "Bash(npx:*)",
+      "Bash(pnpm:*)",
+      "Bash(yarn:*)",
+      "Bash(pip:*)",
+      "Bash(cargo:*)"
+    ]
+  }
+}
